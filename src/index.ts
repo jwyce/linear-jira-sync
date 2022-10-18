@@ -21,10 +21,10 @@ app.get('/test', (_req, _res) => {
 			},
 			summary: 'Testing Nothing to See Here 👀',
 			description: 'Creating an issue via REST API',
-			customfield_15005: 'Velocity Originations', // Impacted System
-			customfield_17200: 'Platform', // Domain
-			customfield_16965: 'Dennis Shebesta', // Product Owner
-			customfield_10201: 'VEL-3398', // Parent Link
+			customfield_15005: env.IMPACTED_SYSTEM,
+			customfield_17200: env.DOMAIN,
+			customfield_16965: env.PRODUCT_OWNER,
+			customfield_10201: env.PARENT_LINK,
 			issuetype: {
 				name: 'Task',
 			},
