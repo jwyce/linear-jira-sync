@@ -8,4 +8,5 @@ export const env = envsafe({
 	DOMAIN: str(),
 	PRODUCT_OWNER: str(),
 	PARENT_LINK: str(),
+	TEAM: str(),
 });
