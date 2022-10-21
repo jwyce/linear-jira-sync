@@ -1,19 +1,21 @@
 import 'dotenv/config';
 
 import axios from 'axios';
-import express from 'express';
+import Fastify from 'fastify';
 import cron from 'node-cron';
 
 import { env } from './env';
 
-const app = express(); // Initializing app
+const app = Fastify({
+	logger: true,
+});
 
 // Creating a cron job which runs on every 10 second
 cron.schedule('*/10 * * * * *', function () {
 	console.log('running a task every 10 second');
 });
 
-app.get('/getIssue', async (_req, res) => {
+app.get('/getIssue', async (_req, rep) => {
 	const issue = await axios.get(
 		'https://jira.cl.glhec.org/rest/api/2/issue/VEL-4657',
 		{
@@ -26,34 +28,10 @@ app.get('/getIssue', async (_req, res) => {
 	);
 
 	console.log(issue.data);
-	return res.json(issue.data);
+	return rep.send(issue.data);
 });
 
-app.get('/editIssue', (_req, _res) => {
-	const bodyData = JSON.stringify({
-		fields: {
-			customfield_10200: env.TEAM,
-			assignee: { name: 'jwyce' },
-			customfield_10106: 5,
-		},
-	});
-
-	axios
-		.put('https://jira.cl.glhec.org/rest/api/2/issue/VEL-4889', bodyData, {
-			headers: {
-				Authorization: `Bearer ${env.JIRA_SECRET}`,
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-			},
-		})
-		.then((res) => {
-			console.log(`Response: ${res.status} ${res.statusText}`);
-			console.log('data', res.data);
-			return res.data;
-		});
-});
-
-app.get('/createIssue', (_req, _res) => {
+app.get('/createIssue', (_req, _rep) => {
 	const bodyData = JSON.stringify({
 		fields: {
 			project: {
@@ -89,4 +67,10 @@ app.get('/createIssue', (_req, _res) => {
 		});
 });
 
-app.listen(env.PORT);
+// Run the server!
+app.listen({ port: env.PORT }, function (err) {
+	if (err) {
+		app.log.error(err);
+		process.exit(1);
+	}
+});
