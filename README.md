@@ -21,8 +21,14 @@ PROJECT_QUERY=optional_jira_query_to_sync_projects
 
 4. Run `npx prisma db push` to init sqlite database
 
-5. Run `pnpm start` to start the server
+5. Run `pnpm dev` to start the dev server
 
-## Deploying
+## Deploying to Railway.app
 
-1. Railway.app
+1. Fork this repository
+
+2. Start a new project on Railway.app
+
+3. Deploy from a GitHub repository
+
+4. Make sure build with Dockerfile is selected
