@@ -33,3 +33,5 @@ DATABASE_URL="file:./db.sqlite"
 3. Deploy from a GitHub repository
 
 4. Make sure build with Dockerfile is selected
+
+5. Add environment variables
