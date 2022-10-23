@@ -4,15 +4,16 @@ import axios from 'axios';
 import Fastify from 'fastify';
 import cron from 'node-cron';
 
+// import { prisma } from './db/client';
 import { env } from './env';
-import { getJiraDefaults } from './getJiraDefaults';
+import { getJiraDefaults } from './utils/getJiraDefaults';
 
 const app = Fastify({
 	logger: true,
 });
 
 // Creating a cron job which runs on every 10 second
-cron.schedule('*/10 * * * * *', function () {
+cron.schedule('*/10 * * * * *', async function () {
 	console.log('running a task every 10 second');
 	const defaults = getJiraDefaults();
 	console.log(defaults);

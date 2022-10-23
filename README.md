@@ -1,6 +1,6 @@
 # Linear-Jira Synchronization
 
-This is a simple service that synchronizes Jira issues with Linear via cron job every 12 hours.
+This is a simple service that synchronizes Jira issues with Linear via a cron job every 12 hours.
 
 ## Setup
 
@@ -8,6 +8,7 @@ This is a simple service that synchronizes Jira issues with Linear via cron job 
 
 ```
 PORT=your_server_port
+NODE_ENV=[development|production]
 JIRA_HOST=your_jira_host
 JIRA_SECRET=your_jira_public_access_token
 LINEAR_SECRET=your_linear_api_key
@@ -20,7 +21,7 @@ DATABASE_URL="file:./db.sqlite"
 
 3. Run `pnpm install` to install dependencies
 
-4. Run `npx prisma db push` to init sqlite database
+4. Run `npx prisma db push` to init SQLite database
 
 5. Run `pnpm dev` to start the dev server
 
