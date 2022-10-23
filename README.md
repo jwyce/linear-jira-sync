@@ -28,7 +28,7 @@ DATABASE_URL="file:./db.sqlite"
 
 1. Fork this repository
 
-2. Start a new project on Railway.app
+2. Start a new project on [Railway.app](https://railway.app/)
 
 3. Deploy from a GitHub repository
 
