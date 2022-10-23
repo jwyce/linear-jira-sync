@@ -8,4 +8,5 @@ export const env = envsafe({
 	LINEAR_SECRET: str(),
 	JIRA_PROJECT: str(),
 	PROJECT_QUERY: str({ allowEmpty: true }),
+	ISSUE_QUERY: str({ allowEmpty: true }),
 });

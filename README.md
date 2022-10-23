@@ -12,7 +12,8 @@ JIRA_HOST=your_jira_host
 JIRA_SECRET=your_jira_public_access_token
 LINEAR_SECRET=your_linear_api_key
 JIRA_PROJECT=your_jira_project_key
-PROJECT_QUERY=optional_jira_query_to_sync_projects
+PROJECT_QUERY=optional_jira_jql_to_sync_projects
+ISSUE_QUERY=optional_jira_jql_to_sync_issues
 DATABASE_URL="file:./db.sqlite"
 ```
 
