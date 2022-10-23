@@ -1,12 +1,10 @@
-import { envsafe, port, str } from 'envsafe';
+import { envsafe, port, str, url } from 'envsafe';
 
 export const env = envsafe({
 	PORT: port(),
+	JIRA_HOST: url(),
 	JIRA_SECRET: str(),
 	LINEAR_SECRET: str(),
-	IMPACTED_SYSTEM: str(),
-	DOMAIN: str(),
-	PRODUCT_OWNER: str(),
-	PARENT_LINK: str(),
-	TEAM: str(),
+	JIRA_PROJECT: str(),
+	PROJECT_QUERY: str({ allowEmpty: true }),
 });
