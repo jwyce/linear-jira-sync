@@ -13,6 +13,7 @@ JIRA_SECRET=your_jira_public_access_token
 LINEAR_SECRET=your_linear_api_key
 JIRA_PROJECT=your_jira_project_key
 PROJECT_QUERY=optional_jira_query_to_sync_projects
+DATABASE_URL="file:./db.sqlite"
 ```
 
 2. Create a `jira.defaults.json` file in the root of the projects with any custom fields and their default creation values
