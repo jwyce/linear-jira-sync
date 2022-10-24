@@ -1,6 +1,6 @@
 # Linear-Jira Synchronization
 
-This is a simple service that synchronizes Jira issues with Linear via a cron job every 12 hours.
+This is a simple service that synchronizes Jira issues with Linear via a cron job every 24 hours.
 
 ## Setup
 
@@ -17,7 +17,7 @@ ISSUE_QUERY=optional_jira_jql_to_sync_issues
 DATABASE_URL="file:./db.sqlite"
 ```
 
-2. Create a `jira.defaults.json` file in the root of the projects with any custom fields and their default creation values
+2. Create a `jira.defaults.json` file in the root of the project with any custom fields and their default creation values
 
 3. Run `pnpm install` to install dependencies
 

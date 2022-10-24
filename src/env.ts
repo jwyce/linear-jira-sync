@@ -2,7 +2,10 @@ import { envsafe, port, str, url } from 'envsafe';
 
 export const env = envsafe({
 	PORT: port(),
-	NODE_ENV: str({ choices: ['development', 'test', 'production'] }),
+	NODE_ENV: str({
+		choices: ['development', 'test', 'production'],
+		default: 'development',
+	}),
 	JIRA_HOST: url(),
 	JIRA_SECRET: str(),
 	LINEAR_SECRET: str(),
